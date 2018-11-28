@@ -32,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/../ep1_mac210/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="6" selection-start-column="6" selection-end-column="6" />
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -313,12 +313,12 @@
       <option name="presentableId" value="Default" />
       <updated>1543093103052</updated>
       <workItem from="1543093118279" duration="15345000" />
-      <workItem from="1543411709604" duration="2323000" />
+      <workItem from="1543411709604" duration="2465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17668000" />
+    <option name="totallyTimeSpent" value="17810000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="-1" width="1372" height="742" extended-state="6" />
@@ -365,7 +365,7 @@
     <entry file="file://$PROJECT_DIR$/../ep1_mac210/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
