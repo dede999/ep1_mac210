@@ -79,8 +79,8 @@ def closest(point, bezier):
 		der_y = np.polyder(curve.y_eq)
 		x = 2 * curve.x_eq
 		y = 2 * curve.y_eq
-		x[-1] -= point.x
-		y[-1] -= point.y
+		x[-1] -= 2 * point.x
+		y[-1] -= 2 * point.y
 		d_f = np.polyadd(np.polymul(x, der_x), np.polymul(y, der_y))
 		for r in np.roots(d_f):
 			if np.isreal(r) and r <= 1 and r >= 0:
@@ -89,6 +89,7 @@ def closest(point, bezier):
 				if d < distance:
 					close = p
 					distance = d
+	return close
 
 
 a = Point(0, 8)
