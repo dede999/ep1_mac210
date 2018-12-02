@@ -66,3 +66,4 @@
 ## Para uma quantidade variada de curvas num grau escolhido
 [user] $ python3.5 canvas (qtde_curvas) (grau)
 ```
+* Configuração padrão cria 5 curvas de Bezier de grau 3
