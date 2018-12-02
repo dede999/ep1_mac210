@@ -1,4 +1,3 @@
-import pygame
 import numpy as np
 import scipy.special as sci
 
@@ -18,6 +17,7 @@ class Bezier:
 	def __init__(self, points):
 		self.x_cord = []
 		self.y_cord = []
+		self.color = None
 		for p in points:
 			self.x_cord.append(p.x)
 			self.y_cord.append(p.y)
@@ -66,37 +66,61 @@ class Bezier:
 				self.y_max = y
 			elif y < self.y_min:
 				self.y_min
-			self.x_pts.append(x)
-			self.y_pts.append(y)
+			self.x_pts.append(int(x))
+			self.y_pts.append(int(y))
 			t += delta
 
+def closest(point, curves):
+	close = None
+	distance = np.infty
+	for bezier in curves:
 
-def closest(point, bezier):
+		for i in range(len(bezier.x_pts)):
+			p = Point(bezier.x_pts[i], bezier.y_pts[i])
+			d = p.dist(point)
+			if d < distance:
+				distance = d
+				close = bezier
+
+	close.color = (0, 255, 0)
+
+def closest1(point, bezier):
 	close = None
 	distance = np.infty
 	for curve in bezier:
-		der_x = np.polyder(curve.x_eq)
-		der_y = np.polyder(curve.y_eq)
-		x = 2 * curve.x_eq
-		y = 2 * curve.y_eq
-		x[-1] -= 2 * point.x
-		y[-1] -= 2 * point.y
-		d_f = np.polyadd(np.polymul(x, der_x), np.polymul(y, der_y))
+		x = curve.x_eq
+		y = curve.y_eq
+		x[-1] -= point.x
+		y[-1] -= point.y
+		dist = np.polyadd(np.polymul(x, x), np.polymul(y, y))
+		d_f = np.polyder(dist)
+
 		for r in np.roots(d_f):
-			if np.isreal(r) and r <= 1 and r >= 0:
+			if np.isreal(r) and r >= 0 and r <= 1:
 				p = Point(np.polyval(curve.x_eq, r), np.polyval(curve.y_eq, r))
 				d = p.dist(point)
-				if d < distance:
-					close = p
+				if d <= distance:
+					close = curve
 					distance = d
+
+	if close.color == (0, 0, 0):
+		print("A curva mais próxima é a preta")
+	elif close.color == (255, 0, 0):
+		print("A curva mais próxima é a vermelha")
+	elif close.color == (0, 255, 0):
+		print("A curva mais próxima é a verde")
+	elif close.color == (0, 0, 255):
+		print("A curva mais próxima é a azul")
+	else:
+		print("A curva mais próxima é a roxo")
 	return close
 
 
-a = Point(0, 8)
-b = Point(1, 7)
-c = Point(4, 5)
-d = Point(3, 2)
-pontos = [a, b, c, d]
-curve = Bezier(pontos)
-print(curve.x_eq)
-print(curve.y_eq)
+# a = Point(0, 8)
+# b = Point(1, 7)
+# c = Point(4, 5)
+# d = Point(3, 2)
+# pontos = [a, b, c, d]
+# curve = Bezier(pontos)
+# print(curve.x_eq)
+# print(curve.y_eq)

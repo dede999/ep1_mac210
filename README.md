@@ -2,13 +2,62 @@
 
 ## Alunos
 * **André Luiz Abdalla Silveira** -> 8030353
-* **Bruno [coloque seu nome aqui, man] Lucas** -> #USP
-
+* **Bruno Guilherme Ricci Lucas** -> 4460596
 ## Observações
 
 * Matemática  feita com Numpy
+    * Procurou-se utilizar os conceitos aprendidos em sala de aula.
+    * Numpy permitiu que se realizasse cálculos mais parrudos, o que
+    nos permitiu mais precisão no cálculo dos pontos das curvas.
+    * As funções que determinam a função da curva na forma 
+    a_0*t^n + a_1*t^{n-1}+ ... + a_n e, consequentemente, a que
+    determina os pontos dessa curva são feitas com primazia. 
+    * A função da curva mais próxima do ponto clicada (**_closest1_**), 
+    por outro lado, não deu tão certo, obrigando-nos a calcular esse
+    item da forma mais rude, porém funcional que tínhamos. (**_closest_**)
+    * tal decisão de projeto decorre-se do fato de não sabermos se a data
+     será prorrogada de fato ou não. 
+    * O fato de termos muitas provas nessa semana é crucial e agravante
 * Parte gráfica com Pygame
+    * Utilizamos a biblioteca pygame pela facilidade que ela promove na
+    criação de interfaces.
+    * A única ferramenta que faltou nessa biblioteca foi uma funcão que
+    plotasse as curvas, mas conseguimos resolver isso salvando os pontos
+    de cada uma das curvas e traçando um segmento de reta entre cada um
+    deles com a função pygame.draw.line, que inclusive já permitia a
+    inclusão da cor desejada para a reta(editado)
+    * Usamos o padrão RGB para definir as cores, e decidimos usar a cor
+    branca como plano de fundo para o aplicativo para garantir, no começo
+    da producão do ep, que o pygame estava funconando corretamente, já
+    que a cor padrão do canvas gerado é preto
+    * Encontramos a posição dos cliques usando o event handler do pygame,
+    que reconhecia o clique e propiciava a função que fornecia as
+    coordenadas x e y do mesmo(editado)
+    * A existência da função pygame.display.flip, que atualiza o canvas,
+    também foi de grande valia para alterar a cor das curvas. Devido a
+    sua simplicidade, usar pygame se mostrou a decisão correta
 * Sobre a programação
+    * Usou-se python 3.5
     * No método **_make_points_**, a 
     variável delta deve ser alterada 
     para balancear desempenho e precisão
+* O que ficou de fora?
+    * Um menu que permitisse criar curvas a partir de pontos garados por
+    cliques
+    * A possibilidade de alternar entre um criador de curvas, e um modo
+    seletor
+    * Deixar pintada de verde somente a curva selecionada - Da forma como
+    fizemos, toda a curva selecionada torna-se verde, mas as que foram
+    selecioandas continuam verdes mesmo que tenha sido desselecionadas.
+    
+## Como funciona
+
+```
+# Instalar as dependências
+[user] $ sudo pip install numpy
+[user] $ sudo pip install pygame
+[user] $ sudo pip install scipy.special
+
+# Depois de instalar, rode o arquivo canvas.py
+[user] $ python3.5 canvas
+```
