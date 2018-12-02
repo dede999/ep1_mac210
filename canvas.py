@@ -1,6 +1,28 @@
+import sys
 import pygame
 import numpy as np
 from bezier import *
+
+args = len(sys.argv)
+if args == 1:
+	print("Configuração Padrão:\n\
+	Grau: 3\n\
+	Curvas: 5")
+	deg = 3
+	cc = 5
+elif args == 2:
+	print("Configuração:\n\
+	Grau: 3\n\
+	Curvas: %s" %  sys.argv[1])
+	deg = 3
+	cc = int(sys.argv[1])
+else:
+	print("Configuração:\n\
+	Grau: %s\n\
+	Curvas: %s" %  (sys.argv[2], sys.argv[1]))
+	deg = int(sys.argv[2])
+	cc = int(sys.argv[1])
+
 
 pygame.init()
 black = (0, 0, 0)
@@ -11,7 +33,7 @@ blue = (0, 0, 255)
 size = [800, 800]
 purple = (255, 0, 255)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("EP1")
+pygame.display.set_caption("EP1 - MAC 0210")
 
 clock = pygame.time.Clock()
 done = False
@@ -20,11 +42,11 @@ done = False
 c = [black, red, green, blue, purple]
 c_vec = []
 
-for i in range(5):
-	p0 = Point(np.random.randint(0,799), np.random.randint(0,799))
-	p1 = Point(np.random.randint(0,799), np.random.randint(0,799))
-	p2 = Point(np.random.randint(0,799), np.random.randint(0,799))
-	c_i = [p0, p1, p2]
+for i in range(cc):
+	c_i = []
+	for d in range(deg + 1):
+		p = Point(np.random.randint(0,799), np.random.randint(0,799))
+		c_i.append(p)
 	curve = Bezier(c_i)
 	curve.color = red
 	c_vec.append(curve)
@@ -36,6 +58,8 @@ while not done:
 	mousepos = (0, 0)
 	for event in pygame.event.get():
 		if event.type == pygame.MOUSEBUTTONDOWN:
+			for bez in c_vec:
+				bez.color = red
 			mousepos = pygame.mouse.get_pos()
 			clique = Point(mousepos[0], mousepos[1])
 			closest(clique, c_vec)

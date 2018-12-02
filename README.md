@@ -9,14 +9,14 @@
     * Procurou-se utilizar os conceitos aprendidos em sala de aula.
     * Numpy permitiu que se realizasse cálculos mais parrudos, o que
     nos permitiu mais precisão no cálculo dos pontos das curvas.
-    * As funções que determinam a função da curva na forma 
+    * As funções que determinam a função da curva na forma
     a_0*t^n + a_1*t^{n-1}+ ... + a_n e, consequentemente, a que
-    determina os pontos dessa curva são feitas com primazia. 
-    * A função da curva mais próxima do ponto clicada (**_closest1_**), 
+    determina os pontos dessa curva são feitas com primazia.
+    * A função da curva mais próxima do ponto clicada (**_closest1_**),
     por outro lado, não deu tão certo, obrigando-nos a calcular esse
     item da forma mais rude, porém funcional que tínhamos. (**_closest_**)
     * tal decisão de projeto decorre-se do fato de não sabermos se a data
-     será prorrogada de fato ou não. 
+     será prorrogada de fato ou não.
     * O fato de termos muitas provas nessa semana é crucial e agravante
 * Parte gráfica com Pygame
     * Utilizamos a biblioteca pygame pela facilidade que ela promove na
@@ -38,8 +38,8 @@
     sua simplicidade, usar pygame se mostrou a decisão correta
 * Sobre a programação
     * Usou-se python 3.5
-    * No método **_make_points_**, a 
-    variável delta deve ser alterada 
+    * No método **_make_points_**, a
+    variável delta deve ser alterada
     para balancear desempenho e precisão
 * O que ficou de fora?
     * Um menu que permitisse criar curvas a partir de pontos garados por
@@ -49,7 +49,7 @@
     * Deixar pintada de verde somente a curva selecionada - Da forma como
     fizemos, toda a curva selecionada torna-se verde, mas as que foram
     selecioandas continuam verdes mesmo que tenha sido desselecionadas.
-    
+
 ## Como funciona
 
 ```
@@ -59,5 +59,13 @@
 [user] $ sudo pip install scipy.special
 
 # Depois de instalar, rode o arquivo canvas.py
+
+## Para uma configuração padrão *
 [user] $ python3.5 canvas
+
+## Para uma quantidade variada de curvas de grau 3
+[user] $ python3.5 canvas (qtde_curvas)
+
+## Para uma quantidade variada de curvas num grau escolhido
+[user] $ python3.5 canvas (qtde_curvas) (grau)
 ```
