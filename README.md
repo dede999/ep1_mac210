@@ -46,9 +46,6 @@
     cliques
     * A possibilidade de alternar entre um criador de curvas, e um modo
     seletor
-    * Deixar pintada de verde somente a curva selecionada - Da forma como
-    fizemos, toda a curva selecionada torna-se verde, mas as que foram
-    selecioandas continuam verdes mesmo que tenha sido desselecionadas.
 
 ## Como funciona
 
