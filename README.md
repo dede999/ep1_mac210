@@ -3,6 +3,7 @@
 ## Alunos
 * **André Luiz Abdalla Silveira** -> 8030353
 * **Bruno Guilherme Ricci Lucas** -> 4460596
+* **Eugênio Jimenes** -> 4460596
 ## Observações
 
 * Matemática  feita com Numpy
@@ -36,6 +37,21 @@
     * A existência da função pygame.display.flip, que atualiza o canvas,
     também foi de grande valia para alterar a cor das curvas. Devido a
     sua simplicidade, usar pygame se mostrou a decisão correta
+    * Botão RESET apaga as curvas existentes e cria novas, sendo o número 
+    e o grau delas o mesmo que os do início do programa.
+    * Botão ADD adiciona uma nova curva na tela, sendo ela aleatória mas do
+     mesmo grau que as demais.
+    * Foi tomado um cuidado à mais para que cliques nos botões não mudassem
+     as cores das curvas.
+    * Os botões foram criados usando a função pygame.Rect(), que cria um 
+    retângulo de colisão na superfície. Bastou então usar a função 
+    pygame.draw.rect(), que de fato colore a parte que o retângulo toma na 
+    tela para deixar o botão visível. Aí, foi apenas uma questão de usar a 
+    combinação myfont.render() e screen.blit para colocar os textos dentro 
+    dos retângulos dos botões. A verificação do clique do mouse dentro do 
+    botão foi feitas usando a função collidepoint() dos retângulos, que 
+    verifica se um ponto está contido no retângulo. O ponto, no caso, são 
+    as coordenadas do mouse quando houve um clique. 
 * Sobre a programação
     * Usou-se python 3.5
     * No método **_make_points_**, a
@@ -58,12 +74,12 @@
 # Depois de instalar, rode o arquivo canvas.py
 
 ## Para uma configuração padrão *
-[user] $ python3.5 canvas
+[user] $ python3.5 canvas.py
 
 ## Para uma quantidade variada de curvas de grau 3
-[user] $ python3.5 canvas (qtde_curvas)
+[user] $ python3.5 canvas.py (qtde_curvas)
 
 ## Para uma quantidade variada de curvas num grau escolhido
-[user] $ python3.5 canvas (qtde_curvas) (grau)
+[user] $ python3.5 canvas.py (qtde_curvas) (grau)
 ```
 * Configuração padrão cria 5 curvas de Bezier de grau 3

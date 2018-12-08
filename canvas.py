@@ -66,8 +66,9 @@ while not done:
 			for bez in c_vec:
 				bez.color = red
 			mousepos = pygame.mouse.get_pos()
-			clique = Point(mousepos[0], mousepos[1])
-			closest(clique, c_vec)
+			if not (reset.collidepoint(event.pos)) and not (add.collidepoint(event.pos)):
+				clique = Point(mousepos[0], mousepos[1])
+				closest(clique, c_vec)
 			if event.button == 1:
 				if reset.collidepoint(event.pos):
 					curves(cc, c_vec, deg)
