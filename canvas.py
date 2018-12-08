@@ -1,7 +1,18 @@
 import sys
 import pygame
-import interface
 from bezier import *
+
+
+def curves(cc, c_vec, deg):
+    del c_vec[:]
+    for i in range(cc):
+        c_i = []
+        for d in range(deg + 1):
+            p = Point(np.random.randint(0, 799), np.random.randint(0, 799))
+            c_i.append(p)
+        curve = Bezier(c_i)
+        curve.color = (255, 0, 0)
+        c_vec.append(curve)
 
 
 args = len(sys.argv)
@@ -43,7 +54,7 @@ done = False
 c = [black, red, green, blue, purple]
 c_vec = []
 
-interface.curves(cc, c_vec, deg)
+curves(cc, c_vec, deg)
 
 while not done:
 	clock.tick(10)
@@ -59,7 +70,7 @@ while not done:
 			closest(clique, c_vec)
 			if event.button == 1:
 				if reset.collidepoint(event.pos):
-					interface.curves(cc, c_vec, deg)
+					curves(cc, c_vec, deg)
 				if add.collidepoint(event.pos):
 					ci = []
 					for d in range(deg + 1):
