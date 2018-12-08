@@ -8,7 +8,7 @@ def curves(cc, c_vec, deg):
     for i in range(cc):
         c_i = []
         for d in range(deg + 1):
-            p = Point(np.random.randint(0, 799), np.random.randint(0, 799))
+            p = Point(np.random.randint(0, 699), np.random.randint(0, 599))
             c_i.append(p)
         curve = Bezier(c_i)
         curve.color = (255, 0, 0)
@@ -41,7 +41,7 @@ white = (255, 255, 255)
 red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
-size = [900, 900]
+size = [800, 600]
 purple = (155, 100, 255)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("EP1 - MAC 0210")
@@ -75,25 +75,26 @@ while not done:
 				if add.collidepoint(event.pos):
 					ci = []
 					for d in range(deg + 1):
-						p = Point(np.random.randint(0, 799), np.random.randint(0, 799))
+						p = Point(np.random.randint(0, 699), np.random.randint(0, 599))
 						ci.append(p)
 					curve = Bezier(ci)
 					curve.color = red
 					c_vec.append(curve)
 
 	screen.fill(white)
-	reset = pygame.Rect(800, 50, 100, 50)
-	add = pygame.Rect(800, 150, 100, 50)
+	reset = pygame.Rect(700, 50, 100, 50)
+	add = pygame.Rect(700, 150, 100, 50)
 	pygame.draw.rect(screen, blue, reset)
 	pygame.draw.rect(screen, purple, add)
 	textR = myfont.render('RESET', False, (0, 0, 0))
 	textA = myfont.render('ADD', False, (0, 0, 0))
-	screen.blit(textR, (800, 50))
-	screen.blit(textA, (800, 150))
+	screen.blit(textR, (700, 50))
+	screen.blit(textA, (700, 150))
 
 	for c in c_vec:
 		for i in range(len(c.x_pts) - 1):
-			pygame.draw.line(screen, c.color, [int(c.x_pts[i]), int(c.y_pts[i])], [int(c.x_pts[i + 1]), int(c.y_pts[i + 1])], 1)
+			pygame.draw.line(screen, c.color, [int(c.x_pts[i]), int(c.y_pts[i])],
+							 [int(c.x_pts[i + 1]), int(c.y_pts[i + 1])], 1)
 
 	pygame.display.flip()
 

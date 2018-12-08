@@ -3,7 +3,7 @@
 ## Alunos
 * **André Luiz Abdalla Silveira** -> 8030353
 * **Bruno Guilherme Ricci Lucas** -> 4460596
-* **Eugênio Jimenes** -> 4460596
+* **Eugênio Augusto Jimenes** -> 7118981
 ## Observações
 
 * Matemática  feita com Numpy
